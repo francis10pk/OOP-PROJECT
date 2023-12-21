@@ -2,12 +2,15 @@ namespace Mood_Food
 {
     public partial class Form1 : Form
     {
-        List<Meal> meal_list = new List<Meal>();
+        
+        FoodManager mgfood = new FoodManager();
         public Form1()
         {
             InitializeComponent();
-
             buttonMood.Enabled = false;
+            tabControl1.TabPages[1].Enabled = false;
+            tabControl1.TabPages[2].Enabled = false;
+            addcombobox();
 
 
         }
@@ -17,13 +20,13 @@ namespace Mood_Food
 
             this.Hide();
 
-            Form2 form2 = new Form2(this);
+            Form2 form2 = new Form2(mgfood);
             form2.Show();
         }
 
         public List<Meal> getMealForm1()
         {
-            return meal_list;
+            return mgfood.Meal_list;
         }
 
         private void buttonAddFood_Click(object sender, EventArgs e)
@@ -31,21 +34,130 @@ namespace Mood_Food
 
             buttonMood.Enabled = true;
             Meal person_meal = new Meal();
-            person_meal.Food = comboBoxTypeofFood.Text;
-            person_meal.Rate = numericUpDownPortionSize.Value;
+            person_meal.Food = comboBoxFoodtype.Text;
+            person_meal.Size = numericUpDownPortionSize.Value;
             person_meal.Time = dateTimePickerTimeofDay.Value.TimeOfDay;
 
-            //MessageBox.Show(person_meal.Food + person_meal.Rate + person_meal.Time);
 
-            meal_list.Add(person_meal);
+            mgfood.AddFoodList(person_meal);
+
             comboBoxTypeofFood.SelectedIndex = -1;
             numericUpDownPortionSize.Value = 0;
             dateTimePickerTimeofDay.Value = dateTimePickerTimeofDay.MinDate;
+
+            comboBoxFoodtype.Items.Clear();
+            comboBoxFoodtype.ResetText();
         }
 
-        private void comboBoxMoods_SelectedIndexChanged(object sender, EventArgs e)
+        private void addcombobox()
         {
+            foreach (var foods in mgfood.CuisineDictionary)
+            {
+                comboBoxlistfood.Items.Add(foods.Key);
+            }
+            foreach (var food in mgfood.CuisineDictionary)
+            {
+                comboBoxTypeofFood.Items.Add(food.Key);
+            }
+        }
+        private void addListbox(int index)
+        {
+            checkedListBoxPreference.Items.Clear();
+            comboBoxFoodtype.Items.Clear();
+
+            switch (index)
+            {
+                case 0:
+                    foreach (var food in mgfood.Italian)
+                    {
+                        checkedListBoxPreference.Items.Add(food);
+                        comboBoxFoodtype.Items.Add(food);
+                    }
+                    break;
+                case 1:
+                    foreach (var food in mgfood.Japanese)
+                    {
+                        checkedListBoxPreference.Items.Add(food);
+                        comboBoxFoodtype.Items.Add(food);
+                    }
+                    break;
+                case 2:
+                    foreach (var food in mgfood.Mexican)
+                    {
+                        checkedListBoxPreference.Items.Add(food);
+                        comboBoxFoodtype.Items.Add(food);
+                    }
+                    break;
+                case 3:
+                    foreach (var food in mgfood.Mediterranean)
+                    {
+                        checkedListBoxPreference.Items.Add(food);
+                        comboBoxFoodtype.Items.Add(food);
+                    }
+                    break;
+                case 4:
+                    foreach (var food in mgfood.Sweets)
+                    {
+                        checkedListBoxPreference.Items.Add(food);
+                        comboBoxFoodtype.Items.Add(food);
+                    }
+                    break;
+                case 5:
+                    foreach (var food in mgfood.Fast_Food)
+                    {
+                        checkedListBoxPreference.Items.Add(food);
+                        comboBoxFoodtype.Items.Add(food);
+                    }
+                    break;
+
+
+            }
 
         }
+
+        private void comboBoxlistfood_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            addListbox(comboBoxlistfood.SelectedIndex);
+        }
+        private void comboBoxTypeofFood_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            addListbox(comboBoxTypeofFood.SelectedIndex);
+        }
+
+        private void buttonDislikes_Click(object sender, EventArgs e)
+        {
+            List<String> dislikedFood = new List<string>();
+
+            foreach (var item in checkedListBoxPreference.CheckedItems)
+            {
+                dislikedFood.Add(item.ToString());
+            }
+            dislikedFood = dislikedFood.Distinct().ToList();
+            tabactive();
+            comboBoxlistfood.SelectedIndex = -1;
+            comboBoxFoodtype.Text = " ";
+        }
+
+        private void checkBoxAte_CheckedChanged(object sender, EventArgs e)
+        {
+            tabactive();
+        }
+
+        public void tabactive()
+        {
+            if (checkBoxAte.Checked == true)
+            {
+                tabControl1.TabPages[1].Enabled = true;
+                tabControl1.TabPages[2].Enabled = false;
+                labelAte.Text = "Go to After Tab";
+            }
+            else
+            {
+                tabControl1.TabPages[2].Enabled = true;
+                tabControl1.TabPages[1].Enabled = false;
+                labelAte.Text = "Go to Before Tab";
+            }
+        }
+
     }
 }

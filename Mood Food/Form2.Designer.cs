@@ -50,10 +50,12 @@
             // numericUpDownRate
             // 
             numericUpDownRate.Location = new Point(345, 157);
-            numericUpDownRate.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numericUpDownRate.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
+            numericUpDownRate.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownRate.Name = "numericUpDownRate";
             numericUpDownRate.Size = new Size(150, 27);
             numericUpDownRate.TabIndex = 13;
+            numericUpDownRate.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // buttonAddFood
             // 

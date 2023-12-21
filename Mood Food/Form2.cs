@@ -14,15 +14,14 @@ namespace Mood_Food
 {
     public partial class Form2 : Form
     {
-        private Form1 form1data;
+        private FoodManager foodmanage;
         List<Meal> meal_list_Form2 = new List<Meal>();
-        Dictionary<Meal, Mood> meal_Mood_dict = new Dictionary<Meal, Mood>();
         int count = 0;
-        public Form2(Form1 form1)
+        public Form2(FoodManager foodmg)
         {
             InitializeComponent();
-            form1data = form1;
-            meal_list_Form2 = form1data.getMealForm1();
+            foodmanage = foodmg;
+            meal_list_Form2 = foodmg.Meal_list;
             labelFood.Text = meal_list_Form2[count].Food;
         }
 
@@ -32,9 +31,13 @@ namespace Mood_Food
         {
             Mood mood_form2 = new Mood();
             mood_form2.Rate = Convert.ToInt32(numericUpDownRate.Value);
+            //prom =2 => You are sad maybe u should eat some "pasta"
+            int rate = 0;
+            rate += mood_form2.Rate ;
+            int prom= rate/ meal_list_Form2.Count;
             set_mood(mood_form2);
 
-            numericUpDownRate.Value = 0;
+            numericUpDownRate.Value = 1;
             count++;
             if (meal_list_Form2.Count > count)
             {
@@ -47,32 +50,7 @@ namespace Mood_Food
             }
 
         }
-        /*
-        private void nextFood(int i)
-        {
-            if (textBoxFood.Text == null)
-            {
-                textBoxFood.Text = meal_list_Form2[0].Food;
-            }
-            else
-            {
-                textBoxFood.Text = meal_list_Form2[i].Food;
-            }
-               
-        
-
-            foreach (var mel_list in meal_list_Form2)
-            {
-                textBoxFood.Text = mel_list.Food;
-                numericUpDownRate.Value = 0;
-                Mood mood_form2 = new Mood();
-                mood_form2.Rate = Convert.ToInt32(numericUpDownRate.Value);
-                set_mood(mood_form2);
-
-                meal_Mood_dict[mel_list] = mood_form2;
-            }
-        }
-        */
+       
         private void set_mood(Mood mood2)
         {
             switch (mood2.Rate)
@@ -95,21 +73,7 @@ namespace Mood_Food
                 case 5:
                     mood2.Moods = "Neutral";
                     break;
-                case 6:
-                    mood2.Moods = "Relieved";
-                    break;
-                case 7:
-                    mood2.Moods = "Calm";
-                    break;
-                case 8:
-                    mood2.Moods = "Very Calm";
-                    break;
-                case 9:
-                    mood2.Moods = "Happy";
-                    break;
-                case 10:
-                    mood2.Moods = "Very Happy";
-                    break;
+
             }
 
         }
