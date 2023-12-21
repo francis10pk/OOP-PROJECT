@@ -126,13 +126,12 @@ namespace Mood_Food
 
         private void buttonDislikes_Click(object sender, EventArgs e)
         {
-            List<String> dislikedFood = new List<string>();
 
             foreach (var item in checkedListBoxPreference.CheckedItems)
             {
-                dislikedFood.Add(item.ToString());
+                mgfood.DislikedFood.Add(item.ToString());
             }
-            dislikedFood = dislikedFood.Distinct().ToList();
+            mgfood.DislikedFood = mgfood.DislikedFood.Distinct().ToList();
             tabactive();
             comboBoxlistfood.SelectedIndex = -1;
             comboBoxFoodtype.Text = " ";

@@ -28,92 +28,105 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Rate = new Label();
-            numericUpDownRate = new NumericUpDown();
-            buttonAddFood = new Button();
-            label2 = new Label();
-            labelFood = new Label();
-            label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownRate).BeginInit();
-            SuspendLayout();
+            this.Rate = new System.Windows.Forms.Label();
+            this.numericUpDownRate = new System.Windows.Forms.NumericUpDown();
+            this.buttonAddFood = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelFood = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRate)).BeginInit();
+            this.SuspendLayout();
             // 
             // Rate
             // 
-            Rate.AutoSize = true;
-            Rate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Rate.Location = new Point(249, 156);
-            Rate.Name = "Rate";
-            Rate.Size = new Size(51, 28);
-            Rate.TabIndex = 14;
-            Rate.Text = "Rate";
+            this.Rate.AutoSize = true;
+            this.Rate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Rate.Location = new System.Drawing.Point(249, 156);
+            this.Rate.Name = "Rate";
+            this.Rate.Size = new System.Drawing.Size(51, 28);
+            this.Rate.TabIndex = 14;
+            this.Rate.Text = "Rate";
             // 
             // numericUpDownRate
             // 
-            numericUpDownRate.Location = new Point(345, 157);
-            numericUpDownRate.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
-            numericUpDownRate.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numericUpDownRate.Name = "numericUpDownRate";
-            numericUpDownRate.Size = new Size(150, 27);
-            numericUpDownRate.TabIndex = 13;
-            numericUpDownRate.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            this.numericUpDownRate.Location = new System.Drawing.Point(345, 157);
+            this.numericUpDownRate.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numericUpDownRate.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownRate.Name = "numericUpDownRate";
+            this.numericUpDownRate.Size = new System.Drawing.Size(150, 27);
+            this.numericUpDownRate.TabIndex = 13;
+            this.numericUpDownRate.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // buttonAddFood
             // 
-            buttonAddFood.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            buttonAddFood.Location = new Point(283, 264);
-            buttonAddFood.Name = "buttonAddFood";
-            buttonAddFood.Size = new Size(158, 41);
-            buttonAddFood.TabIndex = 15;
-            buttonAddFood.Text = "Rate Food";
-            buttonAddFood.UseVisualStyleBackColor = true;
-            buttonAddFood.Click += buttonAddMood_Click;
+            this.buttonAddFood.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonAddFood.Location = new System.Drawing.Point(283, 264);
+            this.buttonAddFood.Name = "buttonAddFood";
+            this.buttonAddFood.Size = new System.Drawing.Size(158, 41);
+            this.buttonAddFood.TabIndex = 15;
+            this.buttonAddFood.Text = "Rate Food";
+            this.buttonAddFood.UseVisualStyleBackColor = true;
+            this.buttonAddFood.Click += new System.EventHandler(this.buttonAddFood_Click);
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(249, 71);
-            label2.Name = "label2";
-            label2.Size = new Size(58, 28);
-            label2.TabIndex = 19;
-            label2.Text = "Food";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(249, 71);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 28);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Food";
             // 
             // labelFood
             // 
-            labelFood.AutoSize = true;
-            labelFood.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            labelFood.Location = new Point(345, 71);
-            labelFood.Name = "labelFood";
-            labelFood.Size = new Size(65, 28);
-            labelFood.TabIndex = 20;
-            labelFood.Text = "label1";
+            this.labelFood.AutoSize = true;
+            this.labelFood.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelFood.Location = new System.Drawing.Point(345, 71);
+            this.labelFood.Name = "labelFood";
+            this.labelFood.Size = new System.Drawing.Size(65, 28);
+            this.labelFood.TabIndex = 20;
+            this.labelFood.Text = "label1";
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 6F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(345, 187);
-            label1.Name = "label1";
-            label1.Size = new Size(98, 12);
-            label1.TabIndex = 21;
-            label1.Text = "*Rate each food item";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(345, 187);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 12);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "*Rate each food item";
             // 
             // Form2
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label1);
-            Controls.Add(labelFood);
-            Controls.Add(label2);
-            Controls.Add(buttonAddFood);
-            Controls.Add(Rate);
-            Controls.Add(numericUpDownRate);
-            Name = "Form2";
-            Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)numericUpDownRate).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelFood);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.buttonAddFood);
+            this.Controls.Add(this.Rate);
+            this.Controls.Add(this.numericUpDownRate);
+            this.Name = "Form2";
+            this.Text = "Form2";
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRate)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

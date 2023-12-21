@@ -17,12 +17,17 @@ namespace Mood_Food
         private FoodManager foodmanage;
         List<Meal> meal_list_Form2 = new List<Meal>();
         int count = 0;
+
+        string mood;
+        public List<string> availableFoods = new List<string>();
+
         public Form2(FoodManager foodmg)
         {
             InitializeComponent();
             foodmanage = foodmg;
             meal_list_Form2 = foodmg.Meal_list;
             labelFood.Text = meal_list_Form2[count].Food;
+            foodmanage.createPosiblefoodsList();
         }
 
 
@@ -32,52 +37,73 @@ namespace Mood_Food
             Mood mood_form2 = new Mood();
             mood_form2.Rate = Convert.ToInt32(numericUpDownRate.Value);
             //prom =2 => You are sad maybe u should eat some "pasta"
-            int rate = 0;
-            rate += mood_form2.Rate ;
-            int prom= rate/ meal_list_Form2.Count;
-            set_mood(mood_form2);
+            int bonus = 0;
+            bonus += foodmanage.getTypeFood(labelFood.Text);
+            int ratesum = 0;
+            ratesum += mood_form2.Rate;
+
+            foodmanage.AllFoods.Remove(labelFood.Text);
+
 
             numericUpDownRate.Value = 1;
+
             count++;
+            
             if (meal_list_Form2.Count > count)
             {
                 labelFood.Text = meal_list_Form2[count].Food;
+                //label.text(cada uno de los string de la lista de comidas escogidas) == busca si existe dict de todos los alimentos
+                //coge el value del dict y lo pone en una variable bonus
             }
             else
             {
                 buttonAddFood.Enabled = false;
-                recomendation();
+                int prom = getprom(bonus + ratesum);
+                availableFoods = foodmanage.AllFoods;
+                mood = set_Mood(prom);
+                
             }
 
         }
-       
-        private void set_mood(Mood mood2)
+        private int getprom(int sumrate)
         {
-            switch (mood2.Rate)
+            int prom = 0;
+            return prom = sumrate / meal_list_Form2.Count;
+        }
+        private string set_Mood(int valueRate)
+        {
+            string final_mood=" ";
+            foreach (var mood in foodmanage.Moods)
             {
-                case 0:
-                    mood2.Moods = "Very Irritated";
-                    break;
+                if (valueRate == mood.Rate)
+                    final_mood = mood.Moods;
+            }
+            return final_mood;
+        }
+        private void recomendation(int valueRate)
+        {
+            //availableFoods
+            //mood
+
+
+
+            switch (valueRate)
+            {
                 case 1:
-                    mood2.Moods = "Irritated";
+                    MessageBox.Show($"You're mood is{mood}. We suggest you to eat: ");
                     break;
                 case 2:
-                    mood2.Moods = "Frustrated";
                     break;
                 case 3:
-                    mood2.Moods = "Very Anxious";
                     break;
                 case 4:
-                    mood2.Moods = "Anxious";
                     break;
                 case 5:
-                    mood2.Moods = "Neutral";
                     break;
-
             }
-
         }
-        private void recomendation()
+
+        private void buttonAddFood_Click(object sender, EventArgs e)
         {
 
         }

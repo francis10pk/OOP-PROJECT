@@ -14,6 +14,9 @@ namespace Mood_Food
         private List<string> mediterranean = new List<string> { "Hummus", "Greek Salad", "Falafel" };
         private List<string> sweets = new List<string> { "Chocolate Cake", "Ice Cream", "Cupcakes" };
         private List<string> fast_Food = new List<string> { "Burger", "French Fries", "Chicken Nuggets" };
+        private List<string> allFoods = new List<string> { "Spaghetti Bolognese", "Margherita Pizza", "Risotto" , "Sushi (Nigiri)", "Ramen", "Tempura",
+                                                           "Tacos", "Guacamole", "Enchiladas", "Hummus", "Greek Salad", "Falafel" ,"Chocolate Cake", "Ice Cream", "Cupcakes"
+                                                            "Burger", "French Fries", "Chicken Nuggets" };
 
         private Mood very_sad = new Mood("Very Sad",1);
         private Mood sad = new Mood("Sad", 2);
@@ -21,12 +24,19 @@ namespace Mood_Food
         private Mood happy = new Mood("Happy", 4);
         private Mood very_happy = new Mood("Very Happy", 5);
 
+
+        private List<String> dislikedFood = new List<string>();
+
+        private Dictionary<List<string>, int> foodsRates = new Dictionary<List<string>, int>();
+            
         private List<Meal> meal_list = new List<Meal>();
 
         private List<Mood> moods= new List<Mood>();
+
         public FoodManager() { 
             addDict();
             addlistmood();
+            FillDictionay();
         }
 
 
@@ -46,6 +56,10 @@ namespace Mood_Food
         public Mood Happy { get => happy; set => happy = value; }
         public Mood Very_happy { get => very_happy; set => very_happy = value; }
         public List<Meal> Meal_list { get => meal_list; set => meal_list = value; }
+        public Dictionary<List<string>, int> FoodsRates { get => foodsRates; set => foodsRates = value; }
+        public List<string> DislikedFood { get => dislikedFood; set => dislikedFood = value; }
+        public List<string> AllFoods { get => allFoods; set => allFoods = value; }
+        
 
         public void addDict()
         {
@@ -70,6 +84,40 @@ namespace Mood_Food
         public void AddFoodList(Meal meal)
         {
             meal_list.Add(meal);
+        }
+
+        public void FillDictionay()
+        {
+            foodsRates[italian] = 0;
+            foodsRates[japanese] = 1;
+            foodsRates[mexican] = 0;
+            foodsRates[mediterranean] = 1;
+            foodsRates[sweets] = -1;
+            foodsRates[fast_Food] = -1;
+        }
+        
+
+        public int getTypeFood(string food)
+        {
+            if (italian.Contains(food))
+                return foodsRates[italian];
+            if (japanese.Contains(food))
+                return foodsRates[japanese];
+            if (mexican.Contains(food))
+                return foodsRates[mexican];
+            if (mediterranean.Contains(food))
+                return foodsRates[mediterranean];
+            if (sweets.Contains(food))
+                return foodsRates[sweets];
+            if (fast_Food.Contains(food))
+                return foodsRates[fast_Food];
+
+            return 0;
+        }
+
+        public void createPosiblefoodsList()
+        {
+            allFoods.RemoveAll(item => dislikedFood.Contains(item));
         }
     }
 }
