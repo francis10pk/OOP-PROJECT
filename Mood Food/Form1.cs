@@ -153,13 +153,13 @@ namespace Mood_Food
             {
                 tabControl1.TabPages[1].Enabled = true;
                 tabControl1.TabPages[2].Enabled = false;
-                labelAte.Text = "Go to After Tab";
+                labelAte.Text = "Go to After Tab After selecting all your allergies/preferences";
             }
             else
             {
                 tabControl1.TabPages[2].Enabled = true;
                 tabControl1.TabPages[1].Enabled = false;
-                labelAte.Text = "Go to Before Tab";
+                labelAte.Text = "Go to Before Tab After selecting all your allergies/preferences";
             }
         }
         public void addMoodsBefore()
@@ -174,7 +174,7 @@ namespace Mood_Food
         {
             mgfood.createPosiblefoodsList();
 
-            if (numericUpDownRate.Value < 5)
+            if (comboBoxMoods.Text != "Very Happy")
             {
                 labelview.Text = ($"If You are feeling {comboBoxMoods.Text} " +
                     $"maybe you should try eating from the list below");

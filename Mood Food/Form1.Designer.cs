@@ -30,6 +30,10 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            button1 = new Button();
+            label9 = new Label();
+            label8 = new Label();
+            label7 = new Label();
             labelAte = new Label();
             label6 = new Label();
             checkBoxAte = new CheckBox();
@@ -53,8 +57,6 @@
             labelview = new Label();
             groupBox1 = new GroupBox();
             buttonRecommend = new Button();
-            Rate = new Label();
-            numericUpDownRate = new NumericUpDown();
             label5 = new Label();
             comboBoxMoods = new ComboBox();
             tabControl1.SuspendLayout();
@@ -65,7 +67,6 @@
             tabPageBefore.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewbefore).BeginInit();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownRate).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -76,11 +77,15 @@
             tabControl1.Location = new Point(12, 12);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1018, 507);
+            tabControl1.Size = new Size(1129, 507);
             tabControl1.TabIndex = 12;
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(button1);
+            tabPage1.Controls.Add(label9);
+            tabPage1.Controls.Add(label8);
+            tabPage1.Controls.Add(label7);
             tabPage1.Controls.Add(labelAte);
             tabPage1.Controls.Add(label6);
             tabPage1.Controls.Add(checkBoxAte);
@@ -90,15 +95,55 @@
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1010, 474);
+            tabPage1.Size = new Size(1121, 474);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Preferences";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            button1.Location = new Point(538, 261);
+            button1.Name = "button1";
+            button1.Size = new Size(162, 52);
+            button1.TabIndex = 10;
+            button1.Text = "No Allergies/Disliked food";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += buttonDislikes_Click;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 6F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Location = new Point(449, 412);
+            label9.Name = "label9";
+            label9.Size = new Size(81, 12);
+            label9.TabIndex = 9;
+            label9.Text = "*Check if you did";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(585, 63);
+            label8.Name = "label8";
+            label8.Size = new Size(64, 35);
+            label8.TabIndex = 8;
+            label8.Text = "Dish";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(357, 63);
+            label7.Name = "label7";
+            label7.Size = new Size(94, 35);
+            label7.TabIndex = 7;
+            label7.Text = "Cuisine";
+            // 
             // labelAte
             // 
             labelAte.AutoSize = true;
-            labelAte.Location = new Point(297, 379);
+            labelAte.Location = new Point(286, 438);
             labelAte.Name = "labelAte";
             labelAte.Size = new Size(0, 20);
             labelAte.TabIndex = 6;
@@ -106,7 +151,8 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(297, 297);
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
+            label6.Location = new Point(357, 350);
             label6.Name = "label6";
             label6.Size = new Size(277, 20);
             label6.TabIndex = 5;
@@ -115,7 +161,7 @@
             // checkBoxAte
             // 
             checkBoxAte.AutoSize = true;
-            checkBoxAte.Location = new Point(368, 332);
+            checkBoxAte.Location = new Point(428, 385);
             checkBoxAte.Name = "checkBoxAte";
             checkBoxAte.Size = new Size(115, 24);
             checkBoxAte.TabIndex = 4;
@@ -125,18 +171,18 @@
             // 
             // buttonDislikes
             // 
-            buttonDislikes.Location = new Point(368, 185);
+            buttonDislikes.Location = new Point(328, 261);
             buttonDislikes.Name = "buttonDislikes";
             buttonDislikes.Size = new Size(162, 52);
             buttonDislikes.TabIndex = 2;
-            buttonDislikes.Text = "Disliked/Allergies";
+            buttonDislikes.Text = "Add Disliked/Allergies";
             buttonDislikes.UseVisualStyleBackColor = true;
             buttonDislikes.Click += buttonDislikes_Click;
             // 
             // checkedListBoxPreference
             // 
             checkedListBoxPreference.FormattingEnabled = true;
-            checkedListBoxPreference.Location = new Point(490, 59);
+            checkedListBoxPreference.Location = new Point(550, 112);
             checkedListBoxPreference.Name = "checkedListBoxPreference";
             checkedListBoxPreference.Size = new Size(150, 70);
             checkedListBoxPreference.TabIndex = 1;
@@ -144,7 +190,7 @@
             // comboBoxlistfood
             // 
             comboBoxlistfood.FormattingEnabled = true;
-            comboBoxlistfood.Location = new Point(268, 80);
+            comboBoxlistfood.Location = new Point(328, 133);
             comboBoxlistfood.Name = "comboBoxlistfood";
             comboBoxlistfood.Size = new Size(151, 28);
             comboBoxlistfood.TabIndex = 0;
@@ -156,7 +202,7 @@
             tabPageAfter.Location = new Point(4, 29);
             tabPageAfter.Name = "tabPageAfter";
             tabPageAfter.Padding = new Padding(3);
-            tabPageAfter.Size = new Size(1010, 474);
+            tabPageAfter.Size = new Size(1121, 474);
             tabPageAfter.TabIndex = 1;
             tabPageAfter.Text = "After";
             tabPageAfter.UseVisualStyleBackColor = true;
@@ -173,7 +219,7 @@
             groupBox2.Controls.Add(numericUpDownPortionSize);
             groupBox2.Controls.Add(dateTimePickerTimeofDay);
             groupBox2.Controls.Add(label2);
-            groupBox2.Location = new Point(91, 24);
+            groupBox2.Location = new Point(206, 34);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(700, 391);
             groupBox2.TabIndex = 12;
@@ -289,7 +335,7 @@
             tabPageBefore.Location = new Point(4, 29);
             tabPageBefore.Name = "tabPageBefore";
             tabPageBefore.Padding = new Padding(3);
-            tabPageBefore.Size = new Size(1010, 474);
+            tabPageBefore.Size = new Size(1121, 474);
             tabPageBefore.TabIndex = 2;
             tabPageBefore.Text = "Before";
             tabPageBefore.UseVisualStyleBackColor = true;
@@ -297,17 +343,17 @@
             // dataGridViewbefore
             // 
             dataGridViewbefore.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewbefore.Location = new Point(595, 62);
+            dataGridViewbefore.Location = new Point(675, 63);
             dataGridViewbefore.Name = "dataGridViewbefore";
             dataGridViewbefore.RowHeadersWidth = 80;
             dataGridViewbefore.RowTemplate.Height = 29;
-            dataGridViewbefore.Size = new Size(300, 387);
+            dataGridViewbefore.Size = new Size(303, 387);
             dataGridViewbefore.TabIndex = 13;
             // 
             // labelview
             // 
             labelview.AutoSize = true;
-            labelview.Location = new Point(515, 15);
+            labelview.Location = new Point(493, 13);
             labelview.Name = "labelview";
             labelview.Size = new Size(0, 20);
             labelview.TabIndex = 12;
@@ -315,8 +361,6 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(buttonRecommend);
-            groupBox1.Controls.Add(Rate);
-            groupBox1.Controls.Add(numericUpDownRate);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(comboBoxMoods);
             groupBox1.Location = new Point(39, 46);
@@ -336,31 +380,11 @@
             buttonRecommend.UseVisualStyleBackColor = true;
             buttonRecommend.Click += buttonRecommend_Click;
             // 
-            // Rate
-            // 
-            Rate.AutoSize = true;
-            Rate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Rate.Location = new Point(92, 156);
-            Rate.Name = "Rate";
-            Rate.Size = new Size(51, 28);
-            Rate.TabIndex = 10;
-            Rate.Text = "Rate";
-            // 
-            // numericUpDownRate
-            // 
-            numericUpDownRate.Location = new Point(215, 156);
-            numericUpDownRate.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
-            numericUpDownRate.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            numericUpDownRate.Name = "numericUpDownRate";
-            numericUpDownRate.Size = new Size(150, 27);
-            numericUpDownRate.TabIndex = 9;
-            numericUpDownRate.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(92, 58);
+            label5.Location = new Point(99, 130);
             label5.Name = "label5";
             label5.Size = new Size(66, 28);
             label5.TabIndex = 8;
@@ -369,7 +393,7 @@
             // comboBoxMoods
             // 
             comboBoxMoods.FormattingEnabled = true;
-            comboBoxMoods.Location = new Point(215, 62);
+            comboBoxMoods.Location = new Point(222, 134);
             comboBoxMoods.Name = "comboBoxMoods";
             comboBoxMoods.Size = new Size(151, 28);
             comboBoxMoods.TabIndex = 0;
@@ -378,7 +402,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1322, 693);
+            ClientSize = new Size(1167, 552);
             Controls.Add(tabControl1);
             Name = "Form1";
             Text = "Mood Food";
@@ -394,7 +418,6 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewbefore).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownRate).EndInit();
             ResumeLayout(false);
         }
 
@@ -414,8 +437,6 @@
         private Label label2;
         private TabPage tabPageBefore;
         private GroupBox groupBox1;
-        private Label Rate;
-        private NumericUpDown numericUpDownRate;
         private Label label5;
         private ComboBox comboBoxMoods;
         private CheckedListBox checkedListBoxPreference;
@@ -428,5 +449,9 @@
         private Button buttonRecommend;
         private Label labelview;
         private DataGridView dataGridViewbefore;
+        private Label label8;
+        private Label label7;
+        private Button button1;
+        private Label label9;
     }
 }
