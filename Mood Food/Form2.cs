@@ -32,39 +32,7 @@ namespace Mood_Food
 
 
 
-        private void buttonAddMood_Click(object sender, EventArgs e)
-        {
-            Mood mood_form2 = new Mood();
-            mood_form2.Rate = Convert.ToInt32(numericUpDownRate.Value);
-            //prom =2 => You are sad maybe u should eat some "pasta"
-            int bonus = 0;
-            bonus += foodmanage.getTypeFood(labelFood.Text);
-            int ratesum = 0;
-            ratesum += mood_form2.Rate;
-
-            foodmanage.AllFoods.Remove(labelFood.Text);
-
-
-            numericUpDownRate.Value = 1;
-
-            count++;
-            
-            if (meal_list_Form2.Count > count)
-            {
-                labelFood.Text = meal_list_Form2[count].Food;
-                //label.text(cada uno de los string de la lista de comidas escogidas) == busca si existe dict de todos los alimentos
-                //coge el value del dict y lo pone en una variable bonus
-            }
-            else
-            {
-                buttonAddFood.Enabled = false;
-                int prom = getprom(bonus + ratesum);
-                availableFoods = foodmanage.AllFoods;
-                mood = set_Mood(prom);
-                
-            }
-
-        }
+       
         private int getprom(int sumrate)
         {
             int prom = 0;
@@ -105,7 +73,35 @@ namespace Mood_Food
 
         private void buttonAddFood_Click(object sender, EventArgs e)
         {
+            Mood mood_form2 = new Mood();
+            mood_form2.Rate = Convert.ToInt32(numericUpDownRate.Value);
+            //prom =2 => You are sad maybe u should eat some "pasta"
+            int bonus = 0;
+            bonus += foodmanage.getTypeFood(labelFood.Text);
+            int ratesum = 0;
+            ratesum += mood_form2.Rate;
 
+            foodmanage.AllFoods.Remove(labelFood.Text);
+
+
+            numericUpDownRate.Value = 1;
+
+            count++;
+
+            if (meal_list_Form2.Count > count)
+            {
+                labelFood.Text = meal_list_Form2[count].Food;
+                //label.text(cada uno de los string de la lista de comidas escogidas) == busca si existe dict de todos los alimentos
+                //coge el value del dict y lo pone en una variable bonus
+            }
+            else
+            {
+                buttonAddFood.Enabled = false;
+                int prom = getprom(bonus + ratesum);
+                availableFoods = foodmanage.AllFoods;
+                mood = set_Mood(prom);
+
+            }
         }
     }
 }
