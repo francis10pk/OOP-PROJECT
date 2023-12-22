@@ -15,7 +15,7 @@ namespace Mood_Food
         private List<string> sweets = new List<string> { "Chocolate Cake", "Ice Cream", "Cupcakes" };
         private List<string> fast_Food = new List<string> { "Burger", "French Fries", "Chicken Nuggets" };
         private List<string> allFoods = new List<string> { "Spaghetti Bolognese", "Margherita Pizza", "Risotto" , "Sushi (Nigiri)", "Ramen", "Tempura",
-                                                           "Tacos", "Guacamole", "Enchiladas", "Hummus", "Greek Salad", "Falafel" ,"Chocolate Cake", "Ice Cream", "Cupcakes"
+                                                           "Tacos", "Guacamole", "Enchiladas", "Hummus", "Greek Salad", "Falafel" ,"Chocolate Cake", "Ice Cream", "Cupcakes",
                                                             "Burger", "French Fries", "Chicken Nuggets" };
 
         private Mood very_sad = new Mood("Very Sad",1);

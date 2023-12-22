@@ -21,6 +21,8 @@ namespace Mood_Food
         string mood;
         public List<string> availableFoods = new List<string>();
 
+        
+
         public Form2(FoodManager foodmg)
         {
             InitializeComponent();
@@ -53,20 +55,37 @@ namespace Mood_Food
             //availableFoods
             //mood
 
+            MyMessageBox ms = new MyMessageBox();
+            
 
+            
 
             switch (valueRate)
             {
                 case 1:
-                    MessageBox.Show($"You're mood is{mood}. We suggest you to eat: ");
+                    ms.LabelText = "Hello";
+                    ms.SetDataGridViewData(foodmanage.Mexican);
+                    ms.ShowDialog();
                     break;
                 case 2:
+                    ms.LabelText = "Hello2";
+                    ms.SetDataGridViewData(foodmanage.Italian);
+                    ms.ShowDialog();
                     break;
                 case 3:
+                    ms.LabelText = "Hello3";
+                    ms.SetDataGridViewData(foodmanage.Japanese);
+                    ms.ShowDialog();
                     break;
                 case 4:
+                    ms.LabelText = "Hello4";
+                    ms.SetDataGridViewData(foodmanage.Sweets);
+                    ms.ShowDialog();
                     break;
                 case 5:
+                    ms.LabelText = "Hello5";
+                    ms.SetDataGridViewData(foodmanage.Fast_Food);
+                    ms.ShowDialog();
                     break;
             }
         }
@@ -100,7 +119,7 @@ namespace Mood_Food
                 int prom = getprom(bonus + ratesum);
                 availableFoods = foodmanage.AllFoods;
                 mood = set_Mood(prom);
-
+                recomendation(prom);
             }
         }
     }
