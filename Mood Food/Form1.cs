@@ -1,8 +1,11 @@
+using System.Data;
+using System.Windows.Forms;
+
 namespace Mood_Food
 {
     public partial class Form1 : Form
     {
-        
+
         FoodManager mgfood = new FoodManager();
         public Form1()
         {
@@ -11,7 +14,7 @@ namespace Mood_Food
             tabControl1.TabPages[1].Enabled = false;
             tabControl1.TabPages[2].Enabled = false;
             addcombobox();
-
+            addMoodsBefore();
 
         }
 
@@ -24,10 +27,10 @@ namespace Mood_Food
             form2.Show();
         }
 
-        public List<Meal> getMealForm1()
-        {
-            return mgfood.Meal_list;
-        }
+        //public List<Meal> getMealForm1()
+        //{
+        //    return mgfood.Meal_list;
+        //}
 
         private void buttonAddFood_Click(object sender, EventArgs e)
         {
@@ -135,6 +138,8 @@ namespace Mood_Food
             tabactive();
             comboBoxlistfood.SelectedIndex = -1;
             comboBoxFoodtype.Text = " ";
+
+
         }
 
         private void checkBoxAte_CheckedChanged(object sender, EventArgs e)
@@ -157,6 +162,33 @@ namespace Mood_Food
                 labelAte.Text = "Go to Before Tab";
             }
         }
+        public void addMoodsBefore()
+        {
+            foreach (var mood in mgfood.Moods)
+            {
+                comboBoxMoods.Items.Add(mood.Moods);
+            }
+        }
 
+        private void buttonRecommend_Click(object sender, EventArgs e)
+        {
+            mgfood.createPosiblefoodsList();
+
+            if (numericUpDownRate.Value < 5)
+            {
+                labelview.Text = ($"If You are feeling {comboBoxMoods.Text} " +
+                    $"maybe you should try eating from the list below");
+            }
+            else
+            { labelview.Text = "Congratulations for feeling the best, You can see below many foods to try later"; }
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Food");
+            foreach (var food in mgfood.AllFoods)
+            {
+                dt.Rows.Add(food);
+            }
+            dataGridViewbefore.DataSource = dt;
+            dataGridViewbefore.Columns[0].Width = 200;
+        }
     }
 }

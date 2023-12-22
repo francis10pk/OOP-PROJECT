@@ -49,7 +49,10 @@
             dateTimePickerTimeofDay = new DateTimePicker();
             label2 = new Label();
             tabPageBefore = new TabPage();
+            dataGridViewbefore = new DataGridView();
+            labelview = new Label();
             groupBox1 = new GroupBox();
+            buttonRecommend = new Button();
             Rate = new Label();
             numericUpDownRate = new NumericUpDown();
             label5 = new Label();
@@ -60,6 +63,7 @@
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPortionSize).BeginInit();
             tabPageBefore.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewbefore).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownRate).BeginInit();
             SuspendLayout();
@@ -72,7 +76,7 @@
             tabControl1.Location = new Point(12, 12);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(951, 507);
+            tabControl1.Size = new Size(1018, 507);
             tabControl1.TabIndex = 12;
             // 
             // tabPage1
@@ -86,7 +90,7 @@
             tabPage1.Location = new Point(4, 29);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(943, 474);
+            tabPage1.Size = new Size(1010, 474);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Preferences";
             tabPage1.UseVisualStyleBackColor = true;
@@ -152,7 +156,7 @@
             tabPageAfter.Location = new Point(4, 29);
             tabPageAfter.Name = "tabPageAfter";
             tabPageAfter.Padding = new Padding(3);
-            tabPageAfter.Size = new Size(943, 474);
+            tabPageAfter.Size = new Size(1010, 474);
             tabPageAfter.TabIndex = 1;
             tabPageAfter.Text = "After";
             tabPageAfter.UseVisualStyleBackColor = true;
@@ -279,27 +283,58 @@
             // 
             // tabPageBefore
             // 
+            tabPageBefore.Controls.Add(dataGridViewbefore);
+            tabPageBefore.Controls.Add(labelview);
             tabPageBefore.Controls.Add(groupBox1);
             tabPageBefore.Location = new Point(4, 29);
             tabPageBefore.Name = "tabPageBefore";
             tabPageBefore.Padding = new Padding(3);
-            tabPageBefore.Size = new Size(943, 474);
+            tabPageBefore.Size = new Size(1010, 474);
             tabPageBefore.TabIndex = 2;
             tabPageBefore.Text = "Before";
             tabPageBefore.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewbefore
+            // 
+            dataGridViewbefore.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewbefore.Location = new Point(595, 62);
+            dataGridViewbefore.Name = "dataGridViewbefore";
+            dataGridViewbefore.RowHeadersWidth = 80;
+            dataGridViewbefore.RowTemplate.Height = 29;
+            dataGridViewbefore.Size = new Size(300, 387);
+            dataGridViewbefore.TabIndex = 13;
+            // 
+            // labelview
+            // 
+            labelview.AutoSize = true;
+            labelview.Location = new Point(515, 15);
+            labelview.Name = "labelview";
+            labelview.Size = new Size(0, 20);
+            labelview.TabIndex = 12;
+            // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(buttonRecommend);
             groupBox1.Controls.Add(Rate);
             groupBox1.Controls.Add(numericUpDownRate);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(comboBoxMoods);
-            groupBox1.Location = new Point(116, 75);
+            groupBox1.Location = new Point(39, 46);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(454, 352);
             groupBox1.TabIndex = 11;
             groupBox1.TabStop = false;
             groupBox1.Text = "Before Eating";
+            // 
+            // buttonRecommend
+            // 
+            buttonRecommend.Location = new Point(163, 248);
+            buttonRecommend.Name = "buttonRecommend";
+            buttonRecommend.Size = new Size(119, 29);
+            buttonRecommend.TabIndex = 12;
+            buttonRecommend.Text = "Recommend";
+            buttonRecommend.UseVisualStyleBackColor = true;
+            buttonRecommend.Click += buttonRecommend_Click;
             // 
             // Rate
             // 
@@ -314,10 +349,12 @@
             // numericUpDownRate
             // 
             numericUpDownRate.Location = new Point(215, 156);
-            numericUpDownRate.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numericUpDownRate.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
+            numericUpDownRate.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericUpDownRate.Name = "numericUpDownRate";
             numericUpDownRate.Size = new Size(150, 27);
             numericUpDownRate.TabIndex = 9;
+            numericUpDownRate.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label5
             // 
@@ -332,7 +369,6 @@
             // comboBoxMoods
             // 
             comboBoxMoods.FormattingEnabled = true;
-            comboBoxMoods.Items.AddRange(new object[] { "Angry", "Anxious", "Calm", "Depressed", "Embarrassed", "Excited", "Grumpy", "Happy", "Hurt", "Indifferent", "Irritated", "Paniccked", "Sad", "Worried" });
             comboBoxMoods.Location = new Point(215, 62);
             comboBoxMoods.Name = "comboBoxMoods";
             comboBoxMoods.Size = new Size(151, 28);
@@ -354,6 +390,8 @@
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownPortionSize).EndInit();
             tabPageBefore.ResumeLayout(false);
+            tabPageBefore.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewbefore).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownRate).EndInit();
@@ -387,5 +425,8 @@
         private CheckBox checkBoxAte;
         private Label labelAte;
         private ComboBox comboBoxFoodtype;
+        private Button buttonRecommend;
+        private Label labelview;
+        private DataGridView dataGridViewbefore;
     }
 }
