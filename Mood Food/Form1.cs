@@ -13,6 +13,7 @@ namespace Mood_Food
             buttonMood.Enabled = false;
             tabControl1.TabPages[1].Enabled = false;
             tabControl1.TabPages[2].Enabled = false;
+            
             addcombobox();
             addMoodsBefore();
 
@@ -34,7 +35,11 @@ namespace Mood_Food
 
         private void buttonAddFood_Click(object sender, EventArgs e)
         {
-
+            if (comboBoxFoodtype.SelectedIndex == -1 || comboBoxTypeofFood.SelectedIndex == -1)
+            {
+                MessageBox.Show("Do not leave any empty fields");
+                return;
+            }
             buttonMood.Enabled = true;
             Meal person_meal = new Meal();
             person_meal.Food = comboBoxFoodtype.Text;
@@ -121,6 +126,8 @@ namespace Mood_Food
         private void comboBoxlistfood_SelectedIndexChanged(object sender, EventArgs e)
         {
             addListbox(comboBoxlistfood.SelectedIndex);
+            //here
+            
         }
         private void comboBoxTypeofFood_SelectedIndexChanged(object sender, EventArgs e)
         {

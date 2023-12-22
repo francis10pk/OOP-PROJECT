@@ -61,27 +61,27 @@ namespace Mood_Food
             switch (valueRate)
             {
                 case 1:
-                    ms.LabelText = "We can see your mood is very sad and we suggest you to eat one of this recommend food for you!";
+                    ms.LabelText = "We can see your mood is very sad \nand we suggest you to eat one of this \nrecommended food for you!";
                     ms.SetDataGridViewData(availableFoods);
                     ms.ShowDialog();
                     break;
                 case 2:
-                    ms.LabelText = "We can see your mood is sad and we suggest you to eat one of this recommend food for you!";
+                    ms.LabelText = "We can see your mood is sad \nand we suggest you to eat one of this \nrecommended food for you!";
                     ms.SetDataGridViewData(availableFoods);
                     ms.ShowDialog();
                     break;
                 case 3:
-                    ms.LabelText = "We can see your mood is neutral sad and we suggest you to eat one of this recommend food for you!";
+                    ms.LabelText = "We can see your mood is neutral sad \nand we suggest you to eat one of this \nrecommended food for you!";
                     ms.SetDataGridViewData(availableFoods);
                     ms.ShowDialog();
                     break;
                 case 4:
-                    ms.LabelText = "We can see your mood is happy and we suggest you to eat one of this recommend food for you!";
+                    ms.LabelText = "We can see your mood is happy \nand we suggest you to eat one of this \nrecommended food for you!";
                     ms.SetDataGridViewData(availableFoods);
                     ms.ShowDialog();
                     break;
                 case 5:
-                    ms.LabelText = "We can see your mood is very happy and we suggest you to eat one of this recommend food for you!";
+                    ms.LabelText = "We can see your mood is very happy and we are happy for you, \nif you would like to have something to eat \nyou can try one of this recommended foods for you!";
                     ms.SetDataGridViewData(availableFoods);
                     ms.ShowDialog();
                     break;
