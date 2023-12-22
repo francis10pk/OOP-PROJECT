@@ -56,35 +56,33 @@ namespace Mood_Food
             //mood
 
             MyMessageBox ms = new MyMessageBox();
-            
 
-            
 
             switch (valueRate)
             {
                 case 1:
-                    ms.LabelText = "Hello";
-                    ms.SetDataGridViewData(foodmanage.Mexican);
+                    ms.LabelText = "We can see your mood is very sad and we suggest you to eat one of this recommend food for you!";
+                    ms.SetDataGridViewData(availableFoods);
                     ms.ShowDialog();
                     break;
                 case 2:
-                    ms.LabelText = "Hello2";
-                    ms.SetDataGridViewData(foodmanage.Italian);
+                    ms.LabelText = "We can see your mood is sad and we suggest you to eat one of this recommend food for you!";
+                    ms.SetDataGridViewData(availableFoods);
                     ms.ShowDialog();
                     break;
                 case 3:
-                    ms.LabelText = "Hello3";
-                    ms.SetDataGridViewData(foodmanage.Japanese);
+                    ms.LabelText = "We can see your mood is neutral sad and we suggest you to eat one of this recommend food for you!";
+                    ms.SetDataGridViewData(availableFoods);
                     ms.ShowDialog();
                     break;
                 case 4:
-                    ms.LabelText = "Hello4";
-                    ms.SetDataGridViewData(foodmanage.Sweets);
+                    ms.LabelText = "We can see your mood is happy and we suggest you to eat one of this recommend food for you!";
+                    ms.SetDataGridViewData(availableFoods);
                     ms.ShowDialog();
                     break;
                 case 5:
-                    ms.LabelText = "Hello5";
-                    ms.SetDataGridViewData(foodmanage.Fast_Food);
+                    ms.LabelText = "We can see your mood is very happy and we suggest you to eat one of this recommend food for you!";
+                    ms.SetDataGridViewData(availableFoods);
                     ms.ShowDialog();
                     break;
             }
